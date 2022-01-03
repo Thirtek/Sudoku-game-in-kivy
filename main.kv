@@ -1,0 +1,147 @@
+<GameOver>:
+	canvas.before:
+		Color:
+			rgba: (0,0,0, 0.7)
+		Rectangle:
+			pos: (0, int(1440/3))
+			size: (720, int(1440/3))
+	
+	
+	Label:
+		text: "You did it!"
+		pos_hint: {"x": 0.35, "y": 0.6}
+		size_hint: (0.3, 0.08)
+	
+	Button:
+		text: "Go again?"
+		pos_hint: {"x": 0.7, "y": 0.4}
+		size_hint: (0.3, 0.08)
+		on_press: root.parent.start_over()
+	
+	Button:
+		text: "Quit"
+		pos_hint: {"x": 0.2, "y": 0.4}
+		size_hint: (0.3, 0.08)
+		on_press: root.quit_press()
+	
+
+<Menu>:
+	l1: l1
+	l2: l2
+	b1: b1
+	
+	canvas.before:
+		Color:
+			rgba: (0,0,0,1)
+		Rectangle:
+			pos: (0,0)
+			size: (root.parent.width, root.parent.height)
+
+	
+	Label:
+		id: l1
+		text: "Welcome to sudoku!"
+		size_hint: (0.4, 0.14)
+		pos_hint: {"x": 0.3, "y": 0.8}
+	
+	Label:
+		id: l2
+		text: "Click start to start the game,\n once the game has started\n you need to solve given sudoku.\n If stuck click solve and click refresh for new board"
+		size_hint: (0.4, 0.3)
+		pos_hint: {"x": 0.2, "y": 0.4}
+		font_size: "20"
+	
+	Button:
+		id: b1
+		text: "start"
+		size_hint: (0.3, 0.08)
+		pos_hint: {"x": 0.35, "y": 0.2}
+		on_press: root.parent.start_the_game(), root.die()
+
+
+
+<Flayout>:
+	menu_id: menu_id
+	
+	Button:
+		text: "Give a hint"
+		pos_hint: {"x": 0.25, "y": 0.15}
+		size_hint: (0.3, 0.08)
+		on_press: root.hint()
+	
+	Button:
+		text: "Solve"
+		pos_hint: {"x": 0.65, "y": 0.15}
+		size_hint: (0.3, 0.08)
+		on_press: root.start_solution()
+	
+	Button:
+		text: "Quit"
+		pos_hint: {"x": 0.05, "y": 0.05}
+		size_hint: (0.2, 0.08)
+		on_press: root.force_quit()
+	
+	
+	Button:
+		id: "0"
+		background_normal: "imgs/zero.png" if root.current_num != 0 else "imgs/on_zero.png"
+		pos_hint: {"x": 0, "y": 0.3}
+		size_hint: (0.12, 0.06)
+		on_press: root.current_num = 0
+	
+	Button:
+		background_normal: "imgs/one.png" if root.current_num != 1 else "imgs/on_one.png"
+		pos_hint: {"x": 0.1, "y": 0.3}
+		size_hint: (0.12, 0.06)
+		on_press: root.current_num = 1
+	
+	Button:
+		background_normal: "imgs/two.png" if root.current_num != 2 else "imgs/on_two.png"
+		pos_hint: {"x": 0.2, "y": 0.3}
+		size_hint: (0.12, 0.06)
+		on_press: root.current_num = 2
+	
+	Button:
+		background_normal: "imgs/three.png" if root.current_num != 3 else "imgs/on_three.png"
+		pos_hint: {"x": 0.3, "y": 0.3}
+		size_hint: (0.12, 0.06)
+		on_press: root.current_num = 3
+
+	Button:
+		background_normal: "imgs/four.png" if root.current_num != 4 else "imgs/on_four.png"
+		pos_hint: {"x": 0.4, "y": 0.3}
+		size_hint: (0.12, 0.06)
+		on_press: root.current_num = 4
+	
+	Button:
+		background_normal: "imgs/five.png" if root.current_num != 5 else "imgs/on_five.png"
+		pos_hint: {"x": 0.5, "y": 0.3}
+		size_hint: (0.12, 0.06)
+		on_press: root.current_num = 5
+	
+	Button:
+		background_normal: "imgs/six.png" if root.current_num != 6 else "imgs/on_six.png"
+		pos_hint: {"x": 0.6, "y": 0.3}
+		size_hint: (0.12, 0.06)
+		on_press: root.current_num = 6
+	
+	Button:
+		background_normal: "imgs/seven.png" if root.current_num != 7 else "imgs/on_seven.png"
+		pos_hint: {"x": 0.7, "y": 0.3}
+		size_hint: (0.12, 0.06)
+		on_press: root.current_num = 7
+
+	Button:
+		background_normal: "imgs/eight.png" if root.current_num != 8 else "imgs/on_eight.png"
+		pos_hint: {"x": 0.8, "y": 0.3}
+		size_hint: (0.12, 0.06)
+		on_press: root.current_num = 8
+	
+	Button:
+		background_normal: "imgs/nine.png" if root.current_num != 9 else "imgs/on_nine.png"
+		pos_hint: {"x": 0.9, "y": 0.3}
+		size_hint: (0.12, 0.06)
+		on_press: root.current_num = 9
+	
+	Menu:
+		id: menu_id
