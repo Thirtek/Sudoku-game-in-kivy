@@ -156,10 +156,10 @@ class Flayout(FloatLayout):
 	
 	@mainthread
 	def update_numbers(self, *dt):
-		for k, label in enumerate(self.labels) and self.forced_solve == False:
+		for k, label in enumerate(self.labels):
 			row = k // 9
 			label.text = str(self.board[row][k % 9])
-		if self.board in self.solved_boards:
+		if self.board in self.solved_boards and self.forced_solve is False:
 			self.game_over()
 		
 	def solve(self, bo):
