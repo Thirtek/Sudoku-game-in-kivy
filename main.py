@@ -2,7 +2,6 @@ import time
 import threading
 import random
 from tools import find_empty, valid
-from tools import solve as solved
 from kivy.app import App
 from kivy.uix.floatlayout import FloatLayout
 from kivy.graphics import Line, Rectangle, Color
